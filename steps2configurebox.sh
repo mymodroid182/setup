@@ -8,9 +8,12 @@ apt-get autoremove
 mkdir /opt/malware /opt/framework /opt/clean /opt/shared
 chown -R user /opt/framework/ /opt/shared/
 python3.5 -m pip install --upgrade pip
-for i in {pefile,pandas,sklearn,scipy}; do python3.5 -m pip install $i;done
-temp1="sig_f = open( filename, 'rt')"
-temp2="sig_f = open( filename, 'rt',encoding = 'Latin-1')"
+python3.5 -m pip install pefile
+python3.5 -m pip install pandas
+python3.5 -m pip install sklearn
+python3.5 -m pip install scipy
+temp1="sig_f = open( filename, 'rt' )"
+temp2="sig_f = open( filename, 'rt' ,encoding = 'Latin-1' )"
 sed -i "s/$temp1/$temp2/g" /usr/local/lib//python3.5/dist-packages/peutils.py
 #Other Stuff To Do
 #/media/user/VBOXADDITIONS_5.1.26_117224/VBoxLinuxAdditions.run
